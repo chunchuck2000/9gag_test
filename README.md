@@ -1,7 +1,7 @@
 ### You Need
 These programs / packages:
-* Python 3.6.x (use 64-bit version if running on Windows 10)
-* Latest pandas ```pip install pandas ```
+* [Python 3.6.x](https://www.python.org/downloads/) (use 64-bit version if running on Windows 10)
+* [Latest pandas](https://pandas.pydata.org/pandas-docs/stable/install.html)
 * Chrome / Firefox / Safari with internet access
 
 These files:
