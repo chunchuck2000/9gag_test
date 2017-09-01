@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link rel="stylesheet" type="text/css" href="report.css">
+
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="report.js"></script>
+    <script>   
+        var columns = [
+              "subreddit",
+              "post_date",
+              "daily_rank",
+              "author",
+              "num_posts",
+              "num_comments",
+              "score"
+              ];
+        var csv_filename = "reddit_posts_2016_09_week_1_leaderboard_top_10.csv";
+
+        init(csv_filename, function(data){
+            if(window.location.href.indexOf("?subreddit=") >= 0){
+                var subreddit = window.location.href.replace(/.*\?subreddit=/,"");
+                draw_table( 'subreddit', subreddit, data, columns, {});
+                update_title("Leaderboard: <a href='http://reddit.com/r/"+subreddit+"'>r/"+subreddit+"</a>");
+            } else {
+                draw_table( 'subreddit', 'funny', data, columns, {});
+                update_title("Leaderboard: <a href='http://reddit.com/r/funny'>r/funny</a>");
+            }
+        });
+    </script>
+  </head>
+  <body id="main">
+  <h2 id="title">Leaderboard</h2>
+  <p>
+    Subreddit daily submissions leaderboard (top 10). Authors are ranked (<b>daily_rank</b>) by
+  </p>
+  <ol>
+    <li><b>num_posts</b> - number of posts submitted on a day (<b>post_date</b>)</li>
+    <li><b>num_comments</b> - number of comments on <b>author</b>'s daily posts</li>
+    <li><b>score</b> - total upvotes - total downvotes of <b>author</b>'s daily posts</li>
+  </ol>
+  <p>Try some popular subreddits:</p>
+    <ul>
+      <li><a href="leaderboard.html?subreddit=AskReddit">r/AskReddit</a></li>
+      <li><a href="leaderboard.html?subreddit=videos">r/Videos</a></li>
+      <li><a href="leaderboard.html?subreddit=birdswitharms">r/BirdsWithArms</a></li>
+    </ul>
+    <p><b>URL</b>: .../leaderboard.html?subreddit=<b>subreddit</b></p>
+  </body>
+</html>

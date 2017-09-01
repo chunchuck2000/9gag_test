@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link rel="stylesheet" type="text/css" href="report.css">
+
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="report.js"></script>
+    <script>
+        var columns = [
+            "author",
+            "streak_start",
+            "streak_length",
+            "num_posts",
+            "num_comments",
+            "score"
+          ];
+
+        var csv_filename = "reddit_posts_2016_09_week_1_streak.csv";
+        
+        init(csv_filename, function(data){
+            var max_streak = Math.max.apply(Math,data.map(function(o){return o.streak_length;}));
+
+            if(window.location.href.indexOf("length") >= 0){
+                var streak_length = parseInt(window.location.href.replace(/.*\?length=/,""));
+                console.log(streak_length);
+                draw_table( 'streak_length' , streak_length, data, columns, {n:100});
+                update_title("Submission Streak: " + streak_length + " days in a row");
+            } else {
+                draw_table( 'streak_length' , max_streak, data, columns, {n:100});
+                update_title("Submission Streak: " + max_streak + " days in a row");
+            }
+        });
+    </script>
+  </head>
+  <body id="main">
+  <h2 id="title">Submission Streak</h2>
+  <p>
+    Showing 100 authors' submission streak. Authors are sorted by:
+  </p>
+  <ol>
+    <li><b>num_posts</b> - number of posts submitted during streak</li>
+    <li><b>num_comments</b> - number of comments accumulated on <b>author</b>'s posts during streak</li>
+    <li><b>score</b> - total upvotes - total downvotes of <b>author</b>'s posts during streak</li>
+  </ol>
+  <p>Also see authors with a:</p>
+  <ul>
+    <li><a href="streak.html?length=6">6 day streak</a></li>
+    <li><a href="streak.html?length=5">5 day streak</a></li>
+  </ul>
+  <p><b>URL</b>: .../streak.html?length=<b>streak_length</b></p>
+  </body>
+</html>
