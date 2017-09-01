@@ -15,10 +15,10 @@ These files:
 
 ### Run
 Put all the files within a ```.../9gag/``` directory, then:
-* for macOS / Linux, in terminal do:
+* for macOS, in terminal do:
 ``` bash
 $ cd .../9gag/
-$ ./make_report.sh
+$ . make_report.sh
 ```
 * for Windows, in cmd do (please wait for each command to finish):
 ```batch
