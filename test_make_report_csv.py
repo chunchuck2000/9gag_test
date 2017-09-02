@@ -32,15 +32,16 @@ def _test_leaderboard():
     assert len(l.loc[(l.subreddit == 'funny') & (l.author == 'u3') & (l.num_comments == 4)]) == 1
     assert len(l.loc[(l.subreddit == 'funny') & (l.author == 'u3') & (l.score == 4)]) == 1
     
+    print('make_report_csv.leaderboard tests passed')
 
 def _test_sub_streak():
     test_data = [
-        {'post_date': 0,         'subreddit': 'all','author': 'u1','num_comments':2, 'score': 2},
-        {'post_date': 60*60*24,  'subreddit': 'all','author': 'u1','num_comments':2, 'score': 1},
-        {'post_date': 2*60*60*24,  'subreddit': 'all','author': 'u1','num_comments':2, 'score': 2},
-        {'post_date': 4*60*60*24,  'subreddit': 'all','author': 'u1','num_comments':2, 'score': 1},
-        {'post_date': 5*60*60*24,  'subreddit': 'all','author': 'u1','num_comments':2, 'score': 2},
-        {'post_date': 0,  'subreddit': None,'author': 'u1','num_comments':2, 'score': 1}
+        {'post_date': 0,            'subreddit': 'all','author': 'u1','num_comments':2, 'score': 2},
+        {'post_date': 60*60*24,     'subreddit': 'all','author': 'u1','num_comments':2, 'score': 1},
+        {'post_date': 2*60*60*24,   'subreddit': 'all','author': 'u1','num_comments':2, 'score': 2},
+        {'post_date': 4*60*60*24,   'subreddit': 'all','author': 'u1','num_comments':2, 'score': 1},
+        {'post_date': 5*60*60*24,   'subreddit': 'all','author': 'u1','num_comments':2, 'score': 2},
+        {'post_date': 0,            'subreddit': None,'author': 'u1','num_comments':2, 'score': 1}
     ]
     s = make_report_csv.sub_streak(pd.DataFrame(test_data))
 
@@ -55,6 +56,8 @@ def _test_sub_streak():
     assert len(s.loc[(s.streak_start == '1970-01-05') & (s.num_comments == 4)]) == 1
     assert len(s.loc[(s.streak_start == '1970-01-05') & (s.num_posts == 2)]) == 1
     assert len(s.loc[(s.streak_start == '1970-01-05') & (s.score == 3)]) == 1
+
+    print('make_report_csv.sub_streak tests passed')
 
 if __name__ == "__main__":
    _test_leaderboard()

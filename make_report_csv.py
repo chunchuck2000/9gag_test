@@ -8,7 +8,7 @@ def leaderboard(r_posts):
 
     Takes pandas DF, each row is one post, with columns
     | post_date | subreddit | author | num_comments | score |
-
+    
     Returns pandas DF, with columns
     | post_date | subreddit | author | score | num_comments | num_posts | daily_rank | daily_total_rank |
     """
