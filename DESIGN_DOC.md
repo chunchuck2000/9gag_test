@@ -86,7 +86,7 @@ GROUP BY 1,2
 > ```make_report_csv.leaderboard(pandas.DataFrame df)``` [source](https://github.com/chunchuck2000/reddit_posts/blob/master/make_report_csv.py#L5)
 
 Parameters:
-* df - pandas.DataFrame with structure described in [Data Structure](https://github.com/chunchuck2000/reddit_posts/blob/master/DESGIN_DOC.md#data-structure) 
+* df - pandas.DataFrame with structure described in [Data Structure](https://github.com/chunchuck2000/reddit_posts/blob/master/DESGIN_DOC.md#data-structure), ```created_utc``` needs to be truncated to nearest date
 
 Returns:
 * pandas.DataFrame with columns:
@@ -104,7 +104,7 @@ daily_total_rank - total number of authors posted on post_date in subreddit
 > ```make_report_csv.sub_streak(pandas.DataFrame df)``` [source](https://github.com/chunchuck2000/reddit_posts/blob/master/make_report_csv.py#L52)
 
 Parameters:
-* df - pandas.DataFrame with structure described in [Data Structure](https://github.com/chunchuck2000/reddit_posts/blob/master/DESGIN_DOC.md#data-structure) 
+* df - pandas.DataFrame with structure described in [Data Structure](https://github.com/chunchuck2000/reddit_posts/blob/master/DESGIN_DOC.md#data-structure), ```created_utc``` needs to be truncated to nearest date
 
 Returns:
 * pandas.DataFrame with columns:
