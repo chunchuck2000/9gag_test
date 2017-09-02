@@ -8,7 +8,7 @@ These programs / packages:
 * Chrome / Safari with internet access
 
 These files:
-* files from this repo
+* all files from this repo
 * [reddit_posts_2016_09_week_1.csv.gz](https://storage.googleapis.com/data_interview/reddit_posts_2016_09_week1/reddit_posts_2016_09_week_1.csv.gz)
 
 ### Run
