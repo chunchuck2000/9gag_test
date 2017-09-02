@@ -18,7 +18,7 @@ Data are from [Reddit Posts Data](https://bigquery.cloud.google.com/dataset/fh-b
 ### How does it work?
 Currently a CSV of the data from [Reddit Posts Data](https://bigquery.cloud.google.com/dataset/fh-bigquery:reddit_posts) 
 is ingested using pandas, the leaderboard and submission streak is then calculated and saved to two CSVs 
-(using ```make_report_csv.py```), which can be viewed later (using ```leaderboard.html``` and ```streak.html```).
+(by running ```make_report_csv.py```), which can be viewed later (```leaderboard.html``` and ```streak.html```).
 
 Calculations logic summarised in SQL (BigQuery dialect):
 * Subreddit Leaderboard
@@ -80,4 +80,41 @@ FROM (
   ) 
 )
 GROUP BY 1,2
+```
+### API Reference
+(For possibly reusable functions)
+> ```make_report_csv.leaderboard(pandas.DataFrame df)``` [source](https://github.com/chunchuck2000/reddit_posts/blob/master/make_report_csv.py#L5)
+
+Parameters:
+* df - pandas.DataFrame with structure described in [Data Structure](https://github.com/chunchuck2000/reddit_posts/blob/master/DESGIN_DOC.md#data-structure) 
+
+Returns:
+* pandas.DataFrame with columns:
+```
+post_date
+subreddit
+author
+score            - author's score accumulated on post_date in subreddit
+num_comments     - number of comments on author's post on post_date in subreddit
+num_posts        - author's number of posts submitted to subreddit on post_date
+daily_rank       - author's rank on post_date in subreddit
+daily_total_rank - total number of authors posted on post_date in subreddit
+```
+
+> ```make_report_csv.sub_streak(pandas.DataFrame df)``` [source](https://github.com/chunchuck2000/reddit_posts/blob/master/make_report_csv.py#L52)
+
+Parameters:
+* df - pandas.DataFrame with structure described in [Data Structure](https://github.com/chunchuck2000/reddit_posts/blob/master/DESGIN_DOC.md#data-structure) 
+
+Returns:
+* pandas.DataFrame with columns:
+```
+subreddit
+author
+score            - author's score accumulated in subreddit during submission streak
+num_comments     - number of comments on author's post in subreddit during submission streak
+num_posts        - author's number of posts submitted to subreddit during submission streak
+streak_group     - author's submission streak grouping index
+streak_start     - author's submission streak start date
+streak_length    - author's submission streak length in days
 ```
