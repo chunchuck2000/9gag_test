@@ -1,5 +1,5 @@
 ### Design Doc
-[Read here](https://github.com/chunchuck2000/reddit_posts/blob/master/DESGIN_DOC.md)
+[Read here](https://github.com/chunchuck2000/reddit_posts/blob/master/DESIGN_DOC.md)
 
 ### To Run You Need
 These programs / packages:
