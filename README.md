@@ -11,6 +11,7 @@ These files:
 * report.js
 * make_report.sh
 * make_report_csv.py
+* test_make_report_csv.py
 * [reddit_posts_2016_09_week_1.csv.gz](https://storage.googleapis.com/data_interview/reddit_posts_2016_09_week1/reddit_posts_2016_09_week_1.csv.gz)
 
 ### Run
@@ -37,7 +38,8 @@ Head over to
 * ```localhost:8000/leaderboard.html``` for the leaderboard report.
 * ```localhost:8000/streak.html``` for the submission streak report.
 
-### Tested On
- 
-* macOS Sierra
-* Windows 10 64-bit
+### Tests
+Run
+``` bash
+python test_make_report_csv.py
+```
