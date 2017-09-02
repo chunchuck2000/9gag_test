@@ -16,7 +16,7 @@ Data are from [Reddit Posts Data](https://bigquery.cloud.google.com/dataset/fh-b
 (each row is one post)
 
 ### How does it work?
-Currently a CSV of the data from [Reddit Posts Data](https://bigquery.cloud.google.com/dataset/fh-bigquery:reddit_posts) 
+A CSV of the data from [Reddit Posts Data](https://bigquery.cloud.google.com/dataset/fh-bigquery:reddit_posts) 
 is ingested using pandas, the leaderboard and submission streak is then calculated and saved to two CSVs 
 (by running ```make_report_csv.py```), which can be viewed later (```leaderboard.html``` and ```streak.html```). [Intructions on how to run.](https://github.com/chunchuck2000/reddit_posts)
 
