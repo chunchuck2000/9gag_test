@@ -8,25 +8,19 @@ These programs / packages:
 * Chrome / Safari with internet access
 
 These files:
-* leaderboard.html
-* streak.html
-* report.css
-* report.js
-* make_report.sh
-* make_report_csv.py
-* test_make_report_csv.py
+* files from this repo
 * [reddit_posts_2016_09_week_1.csv.gz](https://storage.googleapis.com/data_interview/reddit_posts_2016_09_week1/reddit_posts_2016_09_week_1.csv.gz)
 
-### Run 
-Put all the files within a ```.../9gag/``` directory, then:
+### Run
+Clone this repo, then:
 * for macOS, in terminal do:
 ``` bash
-$ cd .../9gag/
+$ cd .../reddit_posts
 $ . make_report.sh
 ```
 * for Windows, in cmd do (please wait for each command to finish):
 ```batch
-> cd ...\9gag
+> cd ...\reddit_posts
 > python make_report_csv.py
 > python -m http.server
 ```
