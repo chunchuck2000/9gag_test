@@ -72,14 +72,10 @@ def sub_streak(r_posts):
     r_sub_streak.columns = ['num_posts' if c == 'author' else c for c in r_sub_streak.columns]
     r_sub_streak.reset_index(inplace=True)
 
-    r_sub_streak['post_order'] = r_sub_streak.sort_values('post_date').groupby('author').cumcount() + 1
-
-    r_sub_streak['first_post_date'] = r_sub_streak.groupby('author')['post_date'].transform(pd.Series.min)
+    r_sub_streak['post_order'] = r_sub_streak.sort_values('post_date').groupby('author').cumcount()
 
     # calculate each streak group by:
-    # post_order - day_diff(post_date - first_post_date)
-    r_sub_streak['streak_group'] = r_sub_streak['post_order']*(60*60*24) \
-                                    - (r_sub_streak['post_date']-r_sub_streak['first_post_date'])
+    r_sub_streak['streak_group'] = r_sub_streak['post_date'] - r_sub_streak['post_order']*(60*60*24)
 
     r_sub_streak['streak_length'] = 1
 

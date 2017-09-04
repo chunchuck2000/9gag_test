@@ -60,12 +60,11 @@ SELECT
 FROM (
   SELECT
     *,
-    post_order - DATEDIFF(post_date, first_post_date) AS streak_group 
+    DATE_ADD(post_date, -post_order, 'DAY') AS streak_group
   FROM (
     SELECT
       *,
-      RANK() OVER (PARTITION BY author ORDER BY post_date) AS post_order,
-      MIN(post_date) OVER (PARTITION BY author) AS first_post_date
+      RANK() OVER (PARTITION BY author ORDER BY post_date) AS post_order
     FROM (
         SELECT
           DATE(SEC_TO_TIMESTAMP(created_utc)) AS post_date,
